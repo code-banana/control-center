@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "typeahead-service-no-db",
+        "tag": ["service"],
+        "connections": ["service-util", "loadbalancer", "database", "cache"],
+        "description": ""
+    },
+    {
+        "id": 2,
+        "name": "typeahead-service-trie-impl",
+        "tag": ["service"],
+        "connections": ["service-util", "loadbalancer"],
+        "description": ""
+    },
+    {
+        "id": 3,
+        "name": "typeahead-service-hashmap-impl",
+        "tag": ["service-util", "loadbalancer"],
+        "description": ""
+    },
+    {
+        "id": 4,
+        "name": "stdout-logging",
+        "tag": ["service-util"],
+        "connections": ["service"],
+        "description": ""
+    },
+    {
+        "id": 5,
+        "name": "nginx-lb",
+        "tag": ["loadbalancer"],
+        "connections": ["service", "loadbalancer-util"],
+        "description": ""
+    },
+    {
+        "id": 6,
+        "name": "sql",
+        "tag": ["database"],
+        "connections": ["service", "database-util"],
+        "description": ""
+    },
+    {
+        "id": 7,
+        "name": "redis",
+        "tag": ["database", "cache"],
+        "connections": ["service", "database-util"],
+        "description": ""
+    },
+    {
+        "id": 8,
+        "name": "ssl",
+        "tag": ["service-util", "loadbalancer-util", "database-util"],
+        "connections": ["service", "loadbalancer", "database"],
+        "description": ""
+    }
+]
