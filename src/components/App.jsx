@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Editor from './Editor'
 import UseLocalStorage from '../hooks/UseLocalStorage'
-import Fullscreen from 'fullscreen-react'
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons'
 import Board from './Board'
@@ -41,7 +37,7 @@ function App() {
             <div className="norm">
                 <Navbar />
 
-                <div className="pane top-pane">
+                <div className="pane top-pane pt-14">
                     <div className='board'>
                         <div className="editor-title">
                             Description
