@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import DragDrop from './DragDrop'
+import TestPanel from './TestPanel'
 
 function Board() {
     const [css, setCss] = UseLocalStorage('css', '')
@@ -26,12 +27,13 @@ function Board() {
                     icon={faCompressAlt}
                 />
         </div>
-        <div className='board-area'>
+        <div className='board-area relative'>
         <DndProvider backend={HTML5Backend}>
             <div className="App">
                 <DragDrop />
             </div>
         </DndProvider>
+        <TestPanel></TestPanel>
         </div>
     </div>
   )

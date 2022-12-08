@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <div>
         
-<div className="w-full flex flex-row items-center p-2 justify-between bg-black shadow-xs bg-indigo-500">
+<div className="fixed w-full flex flex-row items-center p-2 justify-between bg-black shadow-xs bg-indigo-500">
     <div className="text-md ml-8 text-lg text-white hidden md:flex">
         Code 🍌
     </div>
