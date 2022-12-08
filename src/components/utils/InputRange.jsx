@@ -1,4 +1,3 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 export const InputRange = (props) => {
