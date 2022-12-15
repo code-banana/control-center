@@ -39,6 +39,7 @@ body {
   flex-direction: column;
   padding: 0.5rem;
   background-color: hsl(225, 6%, 25%);
+  height: 100%;
   
 }
 
@@ -170,4 +171,71 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
   }
+}
+
+.splitView {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.divider {
+  width: 2px;
+  height: 100%;
+  margin: 1rem;
+  border: 2px solid #808080;
+}
+
+
+.split-pane-col {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.split-pane-row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.split-pane-top,
+.split-pane-bottom,
+.split-pane-right,
+.split-pane-left {
+  flex: 1;
+  overflow: hidden;
+}
+
+.split-pane-right {
+  background-color: #fff;
+  background-image: linear-gradient(
+      90deg,
+      transparent 79px,
+      #abced4 79px,
+      #abced4 81px,
+      transparent 81px
+    ),
+    linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-size: 100% 1.2em;
+}
+
+.split-pane-top,
+.split-pane-bottom {
+  background-color: #ccc;
+  text-align: left;
+  padding: 2%;
+}
+
+.separator-col {
+  border: 1px solid black;
+  cursor: col-resize;
+}
+
+.separator-row {
+  border: 1px solid black;
+  cursor: row-resize;
 }

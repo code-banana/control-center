@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import SplitPane, {
+    Divider,
+    SplitPaneBottom,
+    SplitPaneLeft,
+    SplitPaneMid,
+    SplitPaneRight,
+    SplitPaneTop,
+} from "./splitspane/SplitPane";
 import UseLocalStorage from '../hooks/UseLocalStorage'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCompressAlt } from '@fortawesome/free-solid-svg-icons'
 import Board from './Board'
 import Results from './Results'
 import Navbar from './Navbar'
+import ProblemStatement from './ProblemStatement'
 
 function App() {
     const [html, setHtml] = UseLocalStorage('html', '')
@@ -36,24 +43,20 @@ function App() {
             </div>
             <div className="norm">
                 <Navbar />
-
                 <div className="pane top-pane pt-14">
-                    <div className='board'>
-                        <div className="editor-title">
-                            Description
-                            <FontAwesomeIcon
-                                icon={faCompressAlt}
-                            />
-                        </div>
-                        <div className='board-area lead'>
-                            <img src='https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-1.png'></img>
-                            <p className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
-                                Learn how to think like a developer and build any project you can dream of by taking action instead of just following along with tutorials.
-                            </p>
-                        </div>
-                    </div>
-                    <Board />
-                    <Results />
+                    <SplitPane className="split-pane-row">
+                        <SplitPaneLeft>
+                            <ProblemStatement />
+                        </SplitPaneLeft>
+                        <Divider id="divider-left" className="separator-col" />
+                        <SplitPaneMid>
+                            <Board />
+                        </SplitPaneMid>
+                        <Divider id="divider-right" className="separator-col" />
+                        <SplitPaneRight>
+                            <Results />
+                        </SplitPaneRight>
+                    </SplitPane>
                 </div>
             </div>
         </>
