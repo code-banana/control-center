@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "small-vm",
+        "tag": ["vm", "service"],
+        "connections": ["loadbalancer"],
+        "description": "2vcpus, 8gb ram"
+    },
+    {
+        "id": 2,
+        "name": "mid-vm",
+        "tag": ["vm", "service"],
+        "connections": ["loadbalancer"],
+        "description": "8vcpus, 32gb ram"
+    },
+    {
+        "id": 3,
+        "name": "L7-lb",
+        "tag": ["loadbalancer"],
+        "connections": ["vm", "service"],
+        "description": "layer 7 load balancer"
+    }
+]
