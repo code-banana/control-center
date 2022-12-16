@@ -18,10 +18,10 @@ function TestPanel() {
              {isVisible ?
              (<div className='h-40 relative m-2'>
                 <Button className="bg-green-600 right-8 top-2 absolute">RUN</Button>
-                <div className='w-80 mt-4'>
+                <div className='w-2/3 mt-4'>
                     <InputRange range={concurrentUser} label="Concurrency" unit="users" onChange={() => { }} />
                 </div>
-                <div className='w-80 mt-8'>
+                <div className='w-2/3 mt-8'>
                     <InputRange range={concurrentUser} label="Time" unit="min" onChange={() => { }} />
                 </div>
             </div>
