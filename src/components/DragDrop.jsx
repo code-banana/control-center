@@ -1,24 +1,15 @@
 import React, { useState } from "react";
 import Picture from "./Picture";
 import { useDrop } from "react-dnd";
+import resourcePool from '../track/c10k.json'
 
-const PictureList = [
-  {
-    id: 1,
-    url:
-      'src/assets/picture01.png',
-  },
-  {
-    id: 2,
-    url:
-    'src/assets/picture02.png',  },
-  {
-    id: 3,
-    url:
-    'src/assets/picture03.png',  },
-];
+const PictureList = {
+  'vm': 'src/assets/box.svg',
+  'loadbalancer': 'src/assets/box.svg'
+};
 
 function DragDrop() {
+  console.log(resourcePool)
   const [board, setBoard] = useState([]);
 
   const [{ isOver }, drop] = useDrop(() => ({
@@ -30,23 +21,22 @@ function DragDrop() {
   }));
 
   const addImageToBoard = (id) => {
-    const pictureList = PictureList.filter((picture) => id === picture.id);
-    setBoard((board) => [...board, pictureList[0]]);
+    const resourcePoolId = resourcePool.filter((item) => id === item.id);
+    setBoard((board) => [...board, resourcePoolId[0]]);
   };
   return (
     <>
       <div className="Pictures shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800">
-        {PictureList.map((picture) => {
-          return <Picture url={picture.url} id={picture.id} />;
+        {resourcePool.map((item) => {
+          return <Picture url={PictureList[item.tag[0]]} id={item.id} name={item.name} description={item.description}/>;
         })}
       </div>
-      <br/>
-      <hr/><br/>
+      <br /><hr /><br />
       <div className="drop-box shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800" ref={drop}>
-        {board.map((picture) => {
-          return <Picture url={picture.url} id={picture.id} />;
+        {board.map((item) => {
+          return <Picture url={PictureList[item.tag[0]]} id={item.id} name={item.name} description={item.description}/>;
         })}
-        
+
       </div>
     </>
   );

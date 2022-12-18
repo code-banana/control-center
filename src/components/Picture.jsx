@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-function Picture({ id, url }) {
+function Picture({ id, url, name, description }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "image",
     item: { id: id },
@@ -9,13 +9,16 @@ function Picture({ id, url }) {
       isDragging: !!monitor.isDragging(),
     }),
   }));
-  return (
+  return ( 
+    <p className="relative" ref={drag}>
     <img
-      ref={drag}
+      className="h-20 w-20 m-2"
       src={url}
       width="150px"
       style={{ border: isDragging ? "5px solid pink" : "0px" }}
     />
+      <span className="absolute top-0 mt-8 mx-4 text-black whitespace-nowrap">{name}</span>
+    </p>
   );
 }
 
