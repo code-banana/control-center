@@ -43,7 +43,7 @@ function App() {
             </div>
             <div className="norm">
                 <Navbar />
-                <div className="pane top-pane pt-14">
+                <div className="pane top-pane pt-10">
                     <SplitPane className="split-pane-row">
                         <SplitPaneLeft>
                             <ProblemStatement />
