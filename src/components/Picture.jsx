@@ -10,7 +10,7 @@ function Picture({ id, url, name, description }) {
     }),
   }));
   return ( 
-    <p className="relative" ref={drag}>
+    <p className="relative h-fit w-fit" ref={drag}>
     <img
       className="h-20 w-20 m-2"
       src={url}
