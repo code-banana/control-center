@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Picture from "./Picture";
 import { useDrop } from "react-dnd";
-import resourcePool from '../track/c10k.json'
+import resourcePool from '../track/c10k/c10k.json'
 
 const PictureList = {
   'vm': 'src/assets/box.svg',

@@ -18,8 +18,10 @@ function App() {
     const [javascript, setJavascript] = UseLocalStorage('javascript', '')
     const [srcDoc, setSrcDoc] = useState('')
     const [isEnter, setIsEnter] = useState(false)
-
-
+    const track="c10k"
+    const page ="1"
+   const result = require("../track/"+track+"/result-"+page+".json")
+    //console.log(result)
     return (
         <>
             <div className="error">
@@ -54,7 +56,7 @@ function App() {
                         </SplitPaneMid>
                         <Divider id="divider-right" className="separator-col" />
                         <SplitPaneRight>
-                            <Results />
+                            <Results data={result}/>
                         </SplitPaneRight>
                     </SplitPane>
                 </div>
