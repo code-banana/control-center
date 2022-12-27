@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-function Picture({ id, url, name, description }) {
+function Resource({ id, url, name, description }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "image",
     item: { id: id },
@@ -17,9 +17,9 @@ function Picture({ id, url, name, description }) {
       width="150px"
       style={{ border: isDragging ? "5px solid pink" : "0px" }}
     />
-      <span className="absolute top-0 mt-8 mx-4 text-black whitespace-nowrap">{name}</span>
+      <span className="absolute top-0 mt-8 mx-4 text-black whitespace-prewrap">{name}</span>
     </p>
   );
 }
 
-export default Picture;
+export default Resource;

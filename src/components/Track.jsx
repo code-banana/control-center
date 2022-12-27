@@ -1,24 +1,31 @@
-import React, { useState } from "react";
+import React from 'react'
+import SplitPane, {
+    Divider,
+    SplitPaneLeft,
+    SplitPaneMid,
+    SplitPaneRight,
+} from "./splitspane/SplitPane";
+import Board from './board/Board'
+import Results from './result-components/Results'
+import Navbar from './Navbar'
+import ProblemStatement from './ProblemStatement'
 
-export default Track() {
+export default function Track({result, resourcePool, problem}) {
     return (
-        <div className="norm">
-        <Navbar />
-        <div className="pane top-pane pt-10">
-            <SplitPane className="split-pane-row">
-                <SplitPaneLeft>
-                    <ProblemStatement problem={problem}/>
-                </SplitPaneLeft>
-                <Divider id="divider-left" className="separator-col" />
-                <SplitPaneMid>
-                    <Board />
-                </SplitPaneMid>
-                <Divider id="divider-right" className="separator-col" />
-                <SplitPaneRight>
-                    <Results data={result}/>
-                </SplitPaneRight>
-            </SplitPane>
-        </div>
-        </div>
+            <div className="pane top-pane pt-10">
+                <SplitPane className="split-pane-row">
+                    <SplitPaneLeft>
+                        <ProblemStatement problem={problem} />
+                    </SplitPaneLeft>
+                    <Divider id="divider-left" className="separator-col" />
+                    <SplitPaneMid>
+                        <Board resourcePool={resourcePool}/>
+                    </SplitPaneMid>
+                    <Divider id="divider-right" className="separator-col" />
+                    <SplitPaneRight>
+                        <Results data={result} />
+                    </SplitPaneRight>
+                </SplitPane>
+            </div>
     )
 }

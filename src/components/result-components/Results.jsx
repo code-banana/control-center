@@ -2,8 +2,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons'
-import Guage from './result-components/Guage'
-import ExploreDashboard from './result-components/ExploreDashboard'
+import Guage from './Guage'
+import ExploreDashboard from './ExploreDashboard'
 
 function Results({data}) {
     return (

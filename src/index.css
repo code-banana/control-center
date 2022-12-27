@@ -239,3 +239,7 @@ body {
   border: 1px solid black;
   cursor: row-resize;
 }
+
+.custom-sidebar {
+  height:  -webkit-fill-available;
+}

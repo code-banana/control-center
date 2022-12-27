@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { InputRange } from './utils/InputRange'
-import Button from './utils/Button'
+import { InputRange } from './InputRange'
+import Button from './Button'
 
 function TestPanel() {
     const concurrentUser = [1, 10, 100, 1000, 10000, 100000]

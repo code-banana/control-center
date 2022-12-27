@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import Picture from "./Picture";
+import Picture from "./Resource";
 import { useDrop } from "react-dnd";
-import resourcePool from '../track/c10k/c10k.json'
 
 const PictureList = {
   'vm': 'src/assets/box.svg',
   'loadbalancer': 'src/assets/box.svg'
 };
 
-function DragDrop() {
-  console.log(resourcePool)
+function DragDrop({resourcePool}) {
   const [board, setBoard] = useState([]);
 
   const [{ isOver }, drop] = useDrop(() => ({
