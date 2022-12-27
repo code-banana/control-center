@@ -1,27 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import SplitPane, {
-    Divider,
-    SplitPaneBottom,
-    SplitPaneLeft,
-    SplitPaneMid,
-    SplitPaneRight,
-    SplitPaneTop,
-} from "./splitspane/SplitPane";
-import UseLocalStorage from '../hooks/UseLocalStorage'
-import Board from './Board'
-import Results from './Results'
+import React, {useState} from 'react'
 import Navbar from './Navbar'
-import ProblemStatement from './ProblemStatement'
+import SideBar from './sideBar'
+import Track from './Track'
 
 function App() {
-    const [html, setHtml] = UseLocalStorage('html', '')
-    const [javascript, setJavascript] = UseLocalStorage('javascript', '')
-    const [srcDoc, setSrcDoc] = useState('')
-    const [isEnter, setIsEnter] = useState(false)
-    const track="c10k"
-    const page ="1"
-   const result = require("../track/"+track+"/result-"+page+".json")
-    //console.log(result)
+    const data = require("../track/c10k/c10k.js")
+    const [isSideBarOpen, toggleSideBar] = useState(false);
+    const [problemNumber, setProblemNumber] = useState(-1);
     return (
         <>
             <div className="error">
@@ -43,23 +28,11 @@ function App() {
                     screen with larger screen size
                 </h1>
             </div>
-            <div className="norm">
-                <Navbar />
-                <div className="pane top-pane pt-10">
-                    <SplitPane className="split-pane-row">
-                        <SplitPaneLeft>
-                            <ProblemStatement />
-                        </SplitPaneLeft>
-                        <Divider id="divider-left" className="separator-col" />
-                        <SplitPaneMid>
-                            <Board />
-                        </SplitPaneMid>
-                        <Divider id="divider-right" className="separator-col" />
-                        <SplitPaneRight>
-                            <Results data={result}/>
-                        </SplitPaneRight>
-                    </SplitPane>
-                </div>
+            <div>
+                <Navbar toggleSideBar={() => {toggleSideBar(!isSideBarOpen)}}/>
+                {isSideBarOpen && <SideBar data={data} onSelect={setProblemNumber} toggle={toggleSideBar}/> || null}
+                {problemNumber <0 && <div className="text-center"> <br/><br/><br/><br/><br/><br/><br/><br/> C10k Track details </div> || null}
+                {problemNumber >=0 && <Track {...data[problemNumber]} /> || null}
             </div>
         </>
     )
