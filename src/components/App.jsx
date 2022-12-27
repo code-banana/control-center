@@ -6,7 +6,7 @@ import Track from './Track'
 function App() {
     const data = require("../track/c10k/c10k.js")
     const [isSideBarOpen, toggleSideBar] = useState(false);
-
+    const [problemNumber, setProblemNumber] = useState(-1);
     return (
         <>
             <div className="error">
@@ -30,9 +30,9 @@ function App() {
             </div>
             <div>
                 <Navbar toggleSideBar={() => {toggleSideBar(!isSideBarOpen)}}/>
-                {isSideBarOpen && <SideBar data={data}/> || null}
-                    <br/><br/><br/><br/><br/><br/><br/><br/>
-                    <div className="text-center"> C10k Track details </div> 
+                {isSideBarOpen && <SideBar data={data} onSelect={setProblemNumber} toggle={toggleSideBar}/> || null}
+                {problemNumber <0 && <div className="text-center"> <br/><br/><br/><br/><br/><br/><br/><br/> C10k Track details </div> || null}
+                {problemNumber >=0 && <Track {...data[problemNumber]} /> || null}
             </div>
         </>
     )

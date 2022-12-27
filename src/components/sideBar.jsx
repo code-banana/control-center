@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function SideBar({ data }) {
+export default function SideBar({ data, onSelect, toggle}) {
     let list = data.map((item, i) => (<li>
-        <a href="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+        <button onClick={() =>{onSelect(i); toggle()}} className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
             {i + 1}.
             <span className="ml-3"> {item.name} </span>
-        </a>
+        </button>
     </li>))
 
     return (

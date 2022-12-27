@@ -30,7 +30,7 @@ export default [{
             "description": "Function as a service"
         }
     ],
-    problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : handle 10k concurrent users </h1>
+    problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : is Single machine enough? </h1>
     <p class="leading-tight text-gray-300 lg:mb-6  dark:text-white">
         Do you know what all it takes to handle 10k concurrent users on a simple inmemory application?
         a Raspberry pi? 8 cpus with 32 gb server? or horizontal scaled clustered behind a load balancer?
@@ -90,9 +90,23 @@ export default [{
             "tag": ["vm", "service"],
             "connections": [""],
             "description": "Function as a service"
+        },
+        {
+            "id": 4,
+            "name": "golang",
+            "tag": ["runtime", "service"],
+            "connections": [""],
+            "description": "Function as a service"  
+        },
+        {
+            "id": 5,
+            "name": "nodejs",
+            "tag": ["runtime", "service"],
+            "connections": [""],
+            "description": "Function as a service"  
         }
     ],
-    problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : handle 10k concurrent users </h1>
+    problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : Is Runtime Matters? </h1>
     <p class="leading-tight text-gray-300 lg:mb-6  dark:text-white">
         Do you know what all it takes to handle 10k concurrent users on a simple inmemory application?
         a Raspberry pi? 8 cpus with 32 gb server? or horizontal scaled clustered behind a load balancer?

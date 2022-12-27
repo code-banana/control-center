@@ -4,7 +4,8 @@ import { useDrop } from "react-dnd";
 
 const PictureList = {
   'vm': 'src/assets/box.svg',
-  'loadbalancer': 'src/assets/box.svg'
+  'loadbalancer': 'src/assets/box.svg',
+  'runtime': 'src/assets/box.svg'
 };
 
 function DragDrop({resourcePool}) {

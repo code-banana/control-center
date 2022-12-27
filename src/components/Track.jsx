@@ -10,12 +10,12 @@ import Results from './result-components/Results'
 import Navbar from './Navbar'
 import ProblemStatement from './ProblemStatement'
 
-export default function Track({result, resourcePool, problem}) {
+export default function Track({ result, resourcePool, problemStatement}) {
     return (
             <div className="pane top-pane pt-10">
                 <SplitPane className="split-pane-row">
                     <SplitPaneLeft>
-                        <ProblemStatement problem={problem} />
+                        <ProblemStatement problem={problemStatement} />
                     </SplitPaneLeft>
                     <Divider id="divider-left" className="separator-col" />
                     <SplitPaneMid>
