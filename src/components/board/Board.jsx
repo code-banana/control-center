@@ -5,9 +5,9 @@ import React, { useState, useEffect } from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import DragDrop from './DragDrop'
-import TestPanel from '../testPanel/TestPanel'
+import TestPanel from './testPanel/TestPanel'
 
-function Board({resourcePool}) {
+function Board({resourcePool,  onRunTest}) {
     const [css, setCss] = UseLocalStorage('css', '')
     const [srcDoc, setSrcDoc] = useState('')
 
@@ -33,7 +33,7 @@ function Board({resourcePool}) {
                 <DragDrop resourcePool={resourcePool}/>
             </div>
         </DndProvider>
-        <TestPanel></TestPanel>
+        <TestPanel onRunTest={onRunTest}></TestPanel>
         </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import SplitPane, {
     Divider,
     SplitPaneLeft,
@@ -11,6 +11,13 @@ import Navbar from './Navbar'
 import ProblemStatement from './ProblemStatement'
 
 export default function Track({ result, resourcePool, problemStatement}) {
+
+    const [blurResult, setBlurResult] = useState(true);
+
+    useEffect(() => {
+        setBlurResult(true)
+    }, [problemStatement])
+
     return (
             <div className="pane top-pane pt-10">
                 <SplitPane className="split-pane-row">
@@ -19,11 +26,11 @@ export default function Track({ result, resourcePool, problemStatement}) {
                     </SplitPaneLeft>
                     <Divider id="divider-left" className="separator-col" />
                     <SplitPaneMid>
-                        <Board resourcePool={resourcePool}/>
+                        <Board resourcePool={resourcePool} onRunTest={()=>{setBlurResult(false)}} />
                     </SplitPaneMid>
                     <Divider id="divider-right" className="separator-col" />
                     <SplitPaneRight>
-                        <Results data={result} />
+                        <Results data={result} blurResult={blurResult}/>
                     </SplitPaneRight>
                 </SplitPane>
             </div>

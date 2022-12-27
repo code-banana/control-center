@@ -5,7 +5,7 @@ import { faCompressAlt } from '@fortawesome/free-solid-svg-icons'
 import Guage from './Guage'
 import ExploreDashboard from './ExploreDashboard'
 
-function Results({data}) {
+function Results({data, blurResult}) {
     return (
         <div className='board'>
             <div className="editor-title">
@@ -14,7 +14,7 @@ function Results({data}) {
                     icon={faCompressAlt}
                 />
             </div>
-            <div className='board-area relative'>
+            <div className={(blurResult && 'blur-md' || null) + ' board-area relative'}>
                 <div className='flex flex-wrap'>
                     {data.latencyP95 &&
                     <div className='latency-guage m-2 w-48 h-30'>

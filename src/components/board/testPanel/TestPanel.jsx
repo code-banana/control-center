@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { InputRange } from './InputRange'
 import Button from './Button'
 
-function TestPanel() {
+function TestPanel({onRunTest}) {
     const concurrentUser = [1, 10, 100, 1000, 10000, 100000]
     const [isVisible, setVisibility] = useState(true)
     return (
@@ -17,7 +17,7 @@ function TestPanel() {
             </div>
              {isVisible ?
              (<div className='relative m-2'>
-                <Button className="bg-green-600 right-8 top-2 absolute">RUN</Button>
+                <Button className="bg-green-600 right-8 top-2 absolute" onClick={onRunTest}>RUN</Button>
                 <div className='w-2/3 mt-4'>
                     <InputRange range={concurrentUser} label="Concurrency" unit="users" onChange={() => { }} />
                 </div>
