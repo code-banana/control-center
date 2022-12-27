@@ -20,8 +20,9 @@ function App() {
     const [isEnter, setIsEnter] = useState(false)
     const track="c10k"
     const page ="1"
-   const result = require("../track/"+track+"/result-"+page+".json")
-    //console.log(result)
+    const result = require("../track/"+track+"/result-"+page+".json")
+    const problem = require("../track/"+track+"/problem-"+page+".js")
+    console.log(problem)
     return (
         <>
             <div className="error">
@@ -48,7 +49,7 @@ function App() {
                 <div className="pane top-pane pt-10">
                     <SplitPane className="split-pane-row">
                         <SplitPaneLeft>
-                            <ProblemStatement />
+                            <ProblemStatement problem={problem}/>
                         </SplitPaneLeft>
                         <Divider id="divider-left" className="separator-col" />
                         <SplitPaneMid>
