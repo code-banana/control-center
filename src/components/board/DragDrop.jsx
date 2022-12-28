@@ -1,4 +1,4 @@
-import React, { useCallback,useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ItemTypes } from "./ContainerTypes";
 import update from 'immutability-helper'
 import { Container } from "./Container";
@@ -11,7 +11,7 @@ const PictureList = {
   'runtime': 'src/assets/box.svg'
 };
 
-function DragDrop({resourcePool}) {
+function DragDrop({ resourcePool }) {
   const [board, setBoard] = useState([]);
 
   // const [{ isOver }, drop] = useDrop(() => ({
@@ -21,26 +21,33 @@ function DragDrop({resourcePool}) {
   //     isOver: !!monitor.isOver(),
   //   }),
   // }));
-  const [containers, setContainers] = useState([
-    { 
-      accepts: [ItemTypes.Vm], 
-      lastDroppedItem: null },
-    { 
-      accepts: [ItemTypes.Service], 
-      lastDroppedItem: null },
-    {
-      accepts: [ItemTypes.Database],
-      lastDroppedItem: null,
-    },
-    { accepts: [ItemTypes.Service, ItemTypes.Database], 
-      lastDroppedItem: null },
-  ])
+  const initContainers = [{
+    accepts: [ItemTypes.Vm],
+    lastDroppedItem: null
+  },
+  {
+    accepts: [ItemTypes.Service],
+    lastDroppedItem: null
+  },
+  {
+    accepts: [ItemTypes.Database],
+    lastDroppedItem: null,
+  },
+  {
+    accepts: [ItemTypes.Service, ItemTypes.Database],
+    lastDroppedItem: null
+  }]
+  const [containers, setContainers] = useState(initContainers)
+
+  useEffect(()=> {
+    setContainers(initContainers)
+    setDroppedBoxNames([])
+  },[resourcePool])
 
   // const addImageToBoard = (id) => {
   //   const resourcePoolId = resourcePool.filter((item) => id === item.id);
   //   setBoard((board) => [...board, resourcePoolId[0]]);
   // };
-  const [resourcePools] = useState(resourcePool)
 
   const [droppedBoxNames, setDroppedBoxNames] = useState([])
   function isDropped(boxName) {
@@ -69,7 +76,7 @@ function DragDrop({resourcePool}) {
   return (
     <>
       <div className="Pictures shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800">
-        {resourcePools.map((item) => {
+        {resourcePool.map((item) => {
           // return <Picture url={PictureList[item.tag[0]]} id={item.id} name={item.name} description={item.description} isDropped={isDropped(item.name)}/>;
           return <Box
             name={item.name}
@@ -85,15 +92,15 @@ function DragDrop({resourcePool}) {
           return <Picture url={PictureList[item.tag[0]]} id={item.id} name={item.name} description={item.description}/>;
         })} */}
         <div style={{ overflow: 'hidden', clear: 'both' }}>
-        {containers.map(({ accepts, lastDroppedItem }, index) => (
-          <Container
-            accept={accepts}
-            lastDroppedItem={lastDroppedItem}
-            onDrop={(item) => handleDrop(index, item)}
-            key={index}
-          />
-        ))}
-      </div>
+          {containers.map(({ accepts, lastDroppedItem }, index) => (
+            <Container
+              accept={accepts}
+              lastDroppedItem={lastDroppedItem}
+              onDrop={(item) => handleDrop(index, item)}
+              key={index}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

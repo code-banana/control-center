@@ -17,7 +17,6 @@ export const Container = memo(function Container({
   lastDroppedItem,
   onDrop,
 }) {
-    console.log(accept)
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: accept,
     drop: onDrop,
