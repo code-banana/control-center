@@ -1,13 +1,13 @@
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import UseLocalStorage from '../hooks/UseLocalStorage'
+import UseLocalStorage from '../../hooks/UseLocalStorage'
 import React, { useState, useEffect } from 'react'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import DragDrop from './DragDrop'
-import TestPanel from './TestPanel'
+import TestPanel from './testPanel/TestPanel'
 
-function Board() {
+function Board({resourcePool,  onRunTest}) {
     const [css, setCss] = UseLocalStorage('css', '')
     const [srcDoc, setSrcDoc] = useState('')
 
@@ -30,10 +30,10 @@ function Board() {
         <div className='board-area relative'>
         <DndProvider backend={HTML5Backend}>
             <div className="App">
-                <DragDrop />
+                <DragDrop resourcePool={resourcePool}/>
             </div>
         </DndProvider>
-        <TestPanel></TestPanel>
+        <TestPanel onRunTest={onRunTest}></TestPanel>
         </div>
     </div>
   )

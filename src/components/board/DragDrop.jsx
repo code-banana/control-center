@@ -1,9 +1,5 @@
 import React, { useCallback,useState } from "react";
-import Picture from "./Picture";
-import { useDrop } from "react-dnd";
-import resourcePool from '../track/c10k.json'
-import { ItemTypes } from "./utils/ContainerTypes";
-import { NativeTypes } from 'react-dnd-html5-backend'
+import { ItemTypes } from "./ContainerTypes";
 import update from 'immutability-helper'
 import { Container } from "./Container";
 import { Box } from "./Box";
@@ -11,11 +7,11 @@ import { Box } from "./Box";
 
 const PictureList = {
   'vm': 'src/assets/box.svg',
-  'loadbalancer': 'src/assets/box.svg'
+  'loadbalancer': 'src/assets/box.svg',
+  'runtime': 'src/assets/box.svg'
 };
 
-function DragDrop() {
-  console.log(resourcePool)
+function DragDrop({resourcePool}) {
   const [board, setBoard] = useState([]);
 
   // const [{ isOver }, drop] = useDrop(() => ({
@@ -75,8 +71,6 @@ function DragDrop() {
       <div className="Pictures shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800">
         {resourcePools.map((item) => {
           // return <Picture url={PictureList[item.tag[0]]} id={item.id} name={item.name} description={item.description} isDropped={isDropped(item.name)}/>;
-
-          console.log(item.type)
           return <Box
             name={item.name}
             type={item.type}
