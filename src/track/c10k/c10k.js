@@ -25,6 +25,7 @@ export default [{
         {
             "id": 1,
             "name": "small-vm",
+            "type":"vm",
             "tag": ["vm", "service"],
             "connections": ["loadbalancer"],
             "description": "2vcpus, 8gb ram"
@@ -32,6 +33,7 @@ export default [{
         {
             "id": 2,
             "name": "mid-vm",
+            "type":"vm",
             "tag": ["vm", "service"],
             "connections": ["loadbalancer"],
             "description": "8vcpus, 32gb ram"
@@ -39,6 +41,7 @@ export default [{
         {
             "id": 3,
             "name": "L7-lb",
+            "type":"service",
             "tag": ["loadbalancer"],
             "connections": ["vm", "service"],
             "description": "layer 7 load balancer"
@@ -46,6 +49,7 @@ export default [{
         {
             "id": 4,
             "name": "azure function",
+            "type":"vm",
             "tag": ["vm", "service"],
             "connections": [""],
             "description": "Function as a service"
@@ -87,6 +91,7 @@ export default [{
         {
             "id": 1,
             "name": "small-vm",
+            "type":"vm",
             "tag": ["vm", "service"],
             "connections": ["loadbalancer"],
             "description": "2vcpus, 8gb ram"
@@ -94,6 +99,7 @@ export default [{
         {
             "id": 2,
             "name": "mid-vm",
+            "type":"vm",
             "tag": ["vm", "service"],
             "connections": ["loadbalancer"],
             "description": "8vcpus, 32gb ram"
@@ -102,12 +108,14 @@ export default [{
             "id": 3,
             "name": "L7-lb",
             "tag": ["loadbalancer"],
+            "type":"vm",
             "connections": ["vm", "service"],
             "description": "layer 7 load balancer"
         },
         {
             "id": 4,
             "name": "azure function",
+            "type":"vm",
             "tag": ["vm", "service"],
             "connections": [""],
             "description": "Function as a service"
@@ -116,6 +124,7 @@ export default [{
             "id": 4,
             "name": "golang",
             "tag": ["runtime", "service"],
+            "type":"database",
             "connections": [""],
             "description": "Function as a service"  
         },
@@ -123,6 +132,7 @@ export default [{
             "id": 5,
             "name": "nodejs",
             "tag": ["runtime", "service"],
+            "type":"database",
             "connections": [""],
             "description": "Function as a service"  
         }
