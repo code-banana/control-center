@@ -2,10 +2,7 @@ import { faCompressAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import UseLocalStorage from '../../hooks/UseLocalStorage'
 import React, { useState, useEffect } from 'react'
-// import { DndProvider } from 'react-dnd'
-// import { HTML5Backend } from 'react-dnd-html5-backend'
-// import DragDrop from './DragDrop'
-import TestPanel from './testPanel/TestPanel'
+import Panel from './panel/Panel'
 import Draggable from 'react-draggable';
 import Resource from "./Resource";
 
@@ -55,7 +52,7 @@ function Board({ resourcePool, onRunTest }) {
                             />
                     </Draggable>
                 )})}
-                <TestPanel onRunTest={onRunTest}></TestPanel>
+                <Panel resourcePool={resourcePool} onRunTest={onRunTest} />
             </div>
         </div>
     )
