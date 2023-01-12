@@ -10,20 +10,11 @@ const style = {
   color: 'black',
   float: 'left',
 }
-export const Box = memo(function Box({ name, type, isDropped }) {
-  const [{ opacity }, drag] = useDrag(
-    () => ({
-      type,
-      item: { name },
-      collect: (monitor) => ({
-        opacity: monitor.isDragging() ? 0.4 : 1,
-      }),
-    }),
-    [name, type],
-  )
+export const Box = memo(function Box({ name, type }) {
+
   return (
-    <div ref={drag} style={{ ...style, opacity }} data-testid="box">
-      {isDropped ? <s>{name}</s> : name}
+    <div style={{ ...style}} data-testid="box">
+       <s>{name}</s>
     </div>
   )
 })

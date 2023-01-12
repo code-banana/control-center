@@ -24,37 +24,15 @@ export default [{
     resourcePool: [
         {
             "id": 1,
-            "name": "small-vm",
+            "name": "KV store",
             "type":"vm",
             "tag": ["vm", "service"],
-            "connections": ["loadbalancer"],
-            "description": "2vcpus, 8gb ram"
-        },
-        {
-            "id": 2,
-            "name": "mid-vm",
-            "type":"vm",
-            "tag": ["vm", "service"],
-            "connections": ["loadbalancer"],
-            "description": "8vcpus, 32gb ram"
-        },
-        {
-            "id": 3,
-            "name": "L7-lb",
-            "type":"service",
-            "tag": ["loadbalancer"],
-            "connections": ["vm", "service"],
-            "description": "layer 7 load balancer"
-        },
-        {
-            "id": 4,
-            "name": "azure function",
-            "type":"vm",
-            "tag": ["vm", "service"],
-            "connections": [""],
-            "description": "Function as a service"
-        }
-    ],
+            "description": "key value store",
+            config:[
+                {"type": "vm", "options":["2 vcpus, 8gb ram", "8 vcpus, 32gb ram"]},
+                {"type": "instances", "options":[1,5,10]},
+            ]
+        }],
     problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : is Single machine enough? </h1>
     <p class="leading-tight text-gray-300 lg:mb-6  dark:text-white">
         Hi, any guesses what setup would be enough to handle c10k for our kv-store? <br>
@@ -90,53 +68,16 @@ export default [{
     resourcePool: [
         {
             "id": 1,
-            "name": "small-vm",
+            "name": "KV store",
             "type":"vm",
             "tag": ["vm", "service"],
-            "connections": ["loadbalancer"],
-            "description": "2vcpus, 8gb ram"
-        },
-        {
-            "id": 2,
-            "name": "mid-vm",
-            "type":"vm",
-            "tag": ["vm", "service"],
-            "connections": ["loadbalancer"],
-            "description": "8vcpus, 32gb ram"
-        },
-        {
-            "id": 3,
-            "name": "L7-lb",
-            "tag": ["loadbalancer"],
-            "type":"vm",
-            "connections": ["vm", "service"],
-            "description": "layer 7 load balancer"
-        },
-        {
-            "id": 4,
-            "name": "azure function",
-            "type":"vm",
-            "tag": ["vm", "service"],
-            "connections": [""],
-            "description": "Function as a service"
-        },
-        {
-            "id": 4,
-            "name": "golang",
-            "tag": ["runtime", "service"],
-            "type":"database",
-            "connections": [""],
-            "description": "Function as a service"  
-        },
-        {
-            "id": 5,
-            "name": "nodejs",
-            "tag": ["runtime", "service"],
-            "type":"database",
-            "connections": [""],
-            "description": "Function as a service"  
-        }
-    ],
+            "description": "key value store",
+            config:[
+                {"type": "vm", "options":["2 vcpus, 8gb ram", "8 vcpus, 32gb ram"]},
+                {"type": "instances", "options":[1,5,10]},
+                {"type": "runtime", "options": ["golang", "nodejs"]}
+            ]
+        }],
     problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : Is Runtime Matters? </h1>
     <p class="leading-tight text-gray-300 lg:mb-6  dark:text-white">
         Golang and Nodejs both are the popular languages/runtimes of modern era. But, fundamentally both of them handles concurrency is very different.

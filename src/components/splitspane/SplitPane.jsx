@@ -8,13 +8,22 @@ import React, {
   import SplitPaneContext from "./SplitPaneContext";
   
   const SplitPane = ({ children, ...props }) => {
+
+    const screenWidth = document.getElementById("root").offsetWidth
     const [clientHeight, setClientHeight] = useState(null);
-    const [clientWidth, setClientWidth] = useState(null);
-    const [rightClientWidth, setRightClientWidth] = useState(null);
-    const [midClientWidth, setMidClientWidth] = useState(null);
+    const [clientWidth, setClientWidth] = useState(screenWidth/4);
+    const [rightClientWidth, setRightClientWidth] = useState(screenWidth/4);
+    const [midClientWidth, setMidClientWidth] = useState(screenWidth/2);
     const yDividerPos = useRef(null);
     const xDividerPos = useRef(null);
     const [whichDivider, setWhichDivider] = useState(null);
+
+    window.addEventListener('resize', function(event) {
+      const screenWidth = event.currentTarget.innerWidth;
+      setClientWidth(screenWidth/4)
+      setRightClientWidth(screenWidth/4)
+      setMidClientWidth(screenWidth/2)
+    }, true);
   
     const onMouseHoldDown = (e) => {
       yDividerPos.current = e.clientY;
