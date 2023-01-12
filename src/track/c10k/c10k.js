@@ -27,12 +27,11 @@ export default [{
             "name": "KV store",
             "type":"vm",
             "tag": ["vm", "service"],
-            "connections": ["loadbalancer"],
             "description": "key value store",
-            config:{
-                "vm":["2 vcpus, 8gb ram", "8 vcpus, 32gb ram"],
-                "instances": [1,4,10]
-            }
+            config:[
+                {"type": "vm", "options":["2 vcpus, 8gb ram", "8 vcpus, 32gb ram"]},
+                {"type": "instances", "options":[1,5,10]},
+            ]
         }],
     problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : is Single machine enough? </h1>
     <p class="leading-tight text-gray-300 lg:mb-6  dark:text-white">
@@ -73,11 +72,11 @@ export default [{
             "type":"vm",
             "tag": ["vm", "service"],
             "description": "key value store",
-            configuration:{
-                "vm":["2 vcpus, 8gb ram", "8 vcpus, 32gb ram"],
-                "instances": [1,4,10],
-                "runtime": ["golang", "nodejs"]
-            }
+            config:[
+                {"type": "vm", "options":["2 vcpus, 8gb ram", "8 vcpus, 32gb ram"]},
+                {"type": "instances", "options":[1,5,10]},
+                {"type": "runtime", "options": ["golang", "nodejs"]}
+            ]
         }],
     problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : Is Runtime Matters? </h1>
     <p class="leading-tight text-gray-300 lg:mb-6  dark:text-white">

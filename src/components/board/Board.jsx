@@ -32,7 +32,7 @@ function Board({ resourcePool, onRunTest }) {
                 />
             </div>
             <div className='board-area relative drop-box shadow-lg p-4 bg-gray-800'>
-                <div className='border-2 border-dotted w-1/2 h-1/2 relative top-[15%] left-1/4'>
+                <div className='border-2 border-dotted w-1/2 h-1/2 relative top-[5%] left-1/4'>
                     {resourcePool.map((item) => {
                         // return <Picture url={PictureList[item.tag[0]]} id={item.id} name={item.name} description={item.description} isDropped={isDropped(item.name)}/>;
                         return (<Draggable
