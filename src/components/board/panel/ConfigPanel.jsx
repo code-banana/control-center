@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { RadioInput } from './RadioInput'
+import GlobalContext from '../../Context'
 
-function ConfigPanel({resourcePool}) {
+function ConfigPanel({resourcePool, selectedResource}) {
    const [resource, setResource] = useState(0)
    let initialState = {}
    resourcePool[0].config.map((item) => initialState[item.type]= -1)
-   const [config, setConfig] = useState(initialState)
+   const {config, setConfig} = useContext(GlobalContext)
+   
+   useEffect(() => {
+      setConfig(initialState)
+   },[])
+   
 
  return (
    <div className='h-36 m-2'>

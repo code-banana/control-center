@@ -14,7 +14,7 @@ function Board({ resourcePool, onRunTest }) {
         'loadbalancer': 'src/assets/box.svg',
         'runtime': 'src/assets/box.svg'
     };
-
+    const [selectedResource, setSelected] = useState(-1)
     useEffect(() => {
         const timeout = setTimeout(() => {
             setSrcDoc(css)
@@ -41,17 +41,20 @@ function Board({ resourcePool, onRunTest }) {
                             grid={[50, 50]}
                             scale={1}
                             bounds="parent"
+                            disabled
                         >
                             <Resource
                                 name={item.name}
                                 url={PictureList['vm']}
                                 id={item.index}
+                                onSelect={(id) => { setSelected(id) }}
+                                isHighlight={item.index == selectedResource ? true : false}
                             />
                         </Draggable>
                         )
                     })}
                 </div>
-                <Panel resourcePool={resourcePool} onRunTest={onRunTest} />
+                <Panel resourcePool={resourcePool} onRunTest={onRunTest} selectedResource={selectedResource} onTestPanel={() => {setSelected(-1)}}/>
             </div>
         </div>
     )
