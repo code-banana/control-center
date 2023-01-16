@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import Panel from './panel/Panel'
 import Draggable from 'react-draggable';
 import Resource from "./Resource";
+import Xarrow from "react-xarrows";
 
 function Board({ resourcePool, onRunTest }) {
     const [css, setCss] = UseLocalStorage('css', '')
@@ -32,8 +33,17 @@ function Board({ resourcePool, onRunTest }) {
                 />
             </div>
             <div className='board-area relative drop-box shadow-lg p-4 bg-gray-800'>
-                <div className='border-2 border-dotted w-1/2 h-1/2 relative top-[5%] left-1/4'>
-                    {resourcePool.map((item) => {
+            <div id="start" className='relative top-[30.5%] h-full'></div>
+            <Xarrow
+                start="start" //can be react ref
+                end="box" //or an id
+                color="hsl(225, 6%, 25%)"
+                curveness="0"
+                labels={<div style={{ fontSize: "1em", fontStyle: "bold", color: "hsl(225, 6%, 25%)", position: "relative", bottom: "10px" }}>Traffic</div>}
+                strokeWidth={2}
+            />
+                <div id="box" className='border-2 border-dotted w-1/2 h-1/2 relative top-[5%] left-1/4'>
+                    {resourcePool.map((item, index) => {
                         // return <Picture url={PictureList[item.tag[0]]} id={item.id} name={item.name} description={item.description} isDropped={isDropped(item.name)}/>;
                         return (<Draggable
                             defaultPosition={{ x: 120, y: 120 }}
@@ -41,14 +51,14 @@ function Board({ resourcePool, onRunTest }) {
                             grid={[50, 50]}
                             scale={1}
                             bounds="parent"
-                            disabled
+                            
                         >
                             <Resource
                                 name={item.name}
                                 url={PictureList['vm']}
-                                id={item.index}
+                                id={index}
                                 onSelect={(id) => { setSelected(id) }}
-                                isHighlight={item.index == selectedResource ? true : false}
+                                isHighlight={index == selectedResource ? true : false}
                             />
                         </Draggable>
                         )

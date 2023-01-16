@@ -4,10 +4,10 @@ import { useDrag } from "react-dnd";
 function Resource({ id, url, name, className, onSelect, isHighlight, ...rest }) {
 
   const selectedClass = "border-2 border-indigo-500 border-dotted rounded-3xl"
-
+  console.log("yo", id)
   return (
     <div className={(isHighlight ? selectedClass : null) + " h-fit w-fit " + className} {...rest} onClick={() => { onSelect(id); }}>
-      <p className={"relative"}>
+      <p  id={"arrow-"+id} className={"relative"}>
         <img
           className="h-20 w-20"
           src={url}

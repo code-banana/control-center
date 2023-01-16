@@ -36,7 +36,7 @@ function Panel({onRunTest, resourcePool, selectedResource, onTestPanel}) {
                        <InputRange range={concurrentUser} label="Concurrency" unit="users" onChange={() => { }} />
                    </div>
                    <div className='w-2/3 mt-4'>
-                       <InputRange range={concurrentUser} label="Time" unit="min" onChange={() => { }} />
+                       <InputRange range={[1,2,3,4,5,6,7,8,9,10]} label="Time" unit="min" onChange={() => { }} />
                    </div>
                </div>
                 ) : null)             
