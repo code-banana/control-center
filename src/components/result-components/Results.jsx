@@ -1,11 +1,16 @@
 
-import React from 'react'
+import React, {useContext} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons'
 import Guage from './Guage'
 import ExploreDashboard from './ExploreDashboard'
+import GlobalContext from '../Context'
+import {decode, encode} from 'base-64';
 
-function Results({data, blurResult}) {
+function Results({data, notBlurResult}) {
+    const {config} = useContext(GlobalContext)
+    console.log(JSON.stringify(config))
+    console.log(encode(JSON.stringify(config)))
     return (
         <div className='board'>
             <div className="editor-title">
@@ -14,7 +19,7 @@ function Results({data, blurResult}) {
                     icon={faCompressAlt}
                 />
             </div>
-            <div className={(blurResult && 'blur-md' || null) + ' board-area relative'}>
+            <div className={((notBlurResult==0) && 'blur-md' || null) + ' board-area relative'}>
                 <div className='flex flex-wrap'>
                     {data.latencyP95 &&
                     <div className='latency-guage m-2 w-48 h-30'>

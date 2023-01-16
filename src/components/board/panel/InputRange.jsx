@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export const InputRange = (props) => {
-    const { range, label,unit, onChange } = props;
+    const { range, label,unit, setConfig } = props;
     const [value, setValue] = useState(range[range.length - 1])
 
     const handleDrag = (event) => {
         setValue(range[event.target.value])
-        onChange(range[event.target.value])
+        setConfig(label, range[event.target.value])
     };
 
     return (

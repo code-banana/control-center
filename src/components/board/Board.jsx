@@ -64,7 +64,7 @@ function Board({ resourcePool, onRunTest }) {
                         )
                     })}
                 </div>
-                <Panel resourcePool={resourcePool} onRunTest={onRunTest} selectedResource={selectedResource} onTestPanel={() => {setSelected(-1)}}/>
+                <Panel resourcePool={resourcePool} onRunTest={onRunTest} selectedResource={selectedResource} setSelectedResource={setSelected} onTestPanel={() => {setSelected(-1)}}/>
             </div>
         </div>
     )

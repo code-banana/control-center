@@ -1,4 +1,4 @@
-export default [{
+export default {
     homePageHtml: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k </h1>
     <p class="leading-tight text-gray-300 lg:mb-6  dark:text-white">
         The term "C10k" has been come around ~2000s, which refers to handling 10k concurrent requests. The problem has already been solved now, as there are many systems around which can serve to this scale.
@@ -30,7 +30,7 @@ export default [{
             "description": "key value store",
             config:[
                 {"type": "vm", "options":["2 vcpus, 8gb ram", "8 vcpus, 32gb ram"]},
-                {"type": "instances", "options":[1,5,10]},
+                {"type": "instances", "options":[1,10]},
             ]
         }],
     problemStatement: `<h1 class="mb-4 text-3xl font-extrabold text-center lg:mb-6 lg:text-4xl dark:text-white"> C10k : is Single machine enough? </h1>
@@ -74,7 +74,7 @@ export default [{
             "description": "key value store",
             config:[
                 {"type": "vm", "options":["2 vcpus, 8gb ram", "8 vcpus, 32gb ram"]},
-                {"type": "instances", "options":[1,5,10]},
+                {"type": "instances", "options":[1,10]},
                 {"type": "runtime", "options": ["golang", "nodejs"]}
             ]
         }],
@@ -109,4 +109,4 @@ export default [{
         "swapUsed": "0",
         "dashboardLink": "https://snapshots.raintank.io/dashboard/snapshot/gp6316Sa3yizqJ4mbxIZxv3QTdCtpfGE?orgId=2&from=1671212437397&to=1671213133796"
     }
-}]}]
+}]}
