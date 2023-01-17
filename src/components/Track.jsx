@@ -12,10 +12,10 @@ import ProblemStatement from './ProblemStatement'
 
 export default function Track({ result, resourcePool, problemStatement}) {
 
-    const [blurResult, setBlurResult] = useState(true);
+    const [onRun, increaseRun] = useState(0);
 
     useEffect(() => {
-        setBlurResult(true)
+        increaseRun(0)
     }, [problemStatement])
 
     return (
@@ -26,11 +26,11 @@ export default function Track({ result, resourcePool, problemStatement}) {
                     </SplitPaneLeft>
                     <Divider id="divider-left" className="separator-col" />
                     <SplitPaneMid>
-                        <Board resourcePool={resourcePool} onRunTest={()=>{setBlurResult(false)}} />
+                        <Board resourcePool={resourcePool} onRunTest={()=>{increaseRun(onRun+1)}} />
                     </SplitPaneMid>
                     <Divider id="divider-right" className="separator-col" />
                     <SplitPaneRight>
-                        <Results data={result} blurResult={blurResult}/>
+                        <Results data={result} notBlurResult={onRun}/>
                     </SplitPaneRight>
                 </SplitPane>
             </div>

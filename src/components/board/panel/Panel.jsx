@@ -1,12 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { InputRange } from './InputRange'
 import Button from './Button'
 import ConfigPanel from './ConfigPanel'
+import GlobalContext from '../../Context'
 
-function Panel({onRunTest, resourcePool}) {
+function Panel({onRunTest, resourcePool, selectedResource, onTestPanel, setSelectedResource}) {
     const concurrentUser = [1, 10, 100, 1000, 10000, 100000]
     const [isVisible, setVisibility] = useState(true)
-    const [selectedPanel, setSelectedPanel] = useState(1)
+    const [selectedPanel, setSelectedPanel] = useState(0)
+    const {config, setConfig} = useContext(GlobalContext)
+
+    useEffect(() => {
+        if(selectedResource == -1) {
+            return;
+        }
+        setVisibility(true)
+        setSelectedPanel(1)
+    }, [selectedResource])
+
+    useEffect(() => {
+        if(selectedResource == -1 && selectedPanel == 1) {
+            setSelectedResource(0)
+        }
+    }, [selectedPanel])
+
     return (
         <div className='absolute left-0 right-0  bottom-2 bg-stone-100'>
             <div className='h-6 bg-indigo-500 flex flex-row-reverse px-8 justify-between'>
@@ -16,23 +33,23 @@ function Panel({onRunTest, resourcePool}) {
                     </svg>
                 </button>
                 <div className='flex flex-row'>
-                    <button className= {'mr-4 '+(selectedPanel == 0 ? ' underline font-bold' : null)} onClick={() => setSelectedPanel(0)}>Test</button>
-                    <button className={selectedPanel == 1 ? 'underline font-bold' : null} onClick={() => setSelectedPanel(1)}>Config</button>
+                    <button className={'mr-4 '+(selectedPanel == 1 ? 'underline font-bold' : null)} onClick={() => setSelectedPanel(1)}>Config</button>
+                    <button className= {(selectedPanel == 0 ? ' underline font-bold' : null)} onClick={() => {setSelectedPanel(0); onTestPanel()}}>Test</button> 
                 </div>
             </div>
-             {isVisible && selectedPanel == 0?
-             (<div className='relative m-2 h-36'>
-                <Button className="bg-green-600 right-8 top-2 absolute" onClick={onRunTest}>RUN</Button>
-                <div className='w-2/3 mt-2'>
-                    <InputRange range={concurrentUser} label="Concurrency" unit="users" onChange={() => { }} />
-                </div>
-                <div className='w-2/3 mt-4'>
-                    <InputRange range={concurrentUser} label="Time" unit="min" onChange={() => { }} />
-                </div>
-            </div>
-             ): (isVisible && selectedPanel == 1?
-                <ConfigPanel resourcePool={resourcePool}  />
-                : null)             
+             {(isVisible && selectedPanel == 1?
+                <ConfigPanel resourcePool={resourcePool} selectedResource={selectedResource} config={config} setConfig={(type, value) => {setConfig({...config, [type] : value})}}/>
+                : isVisible && selectedPanel == 0?
+                (<div className='relative m-2 h-36'>
+                   <Button className="bg-green-600 right-8 top-2 absolute" onClick={() => {onRunTest()}}>RUN</Button>
+                   <div className='w-2/3 mt-2'>
+                       <InputRange range={concurrentUser} label="Concurrency" unit="users" setConfig={(type, value) => {setConfig({...config, [type] : value})}} />
+                   </div>
+                   <div className='w-2/3 mt-4'>
+                       <InputRange range={[1,5,10]} label="Time" unit="min" setConfig={(type, value) => {setConfig({...config, [type] : value})}} />
+                   </div>
+               </div>
+                ) : null)             
           }
         </div>
     )
