@@ -46,7 +46,7 @@ function Board({ resourcePool, onRunTest }) {
                     {resourcePool.map((item, index) => {
                         // return <Picture url={PictureList[item.tag[0]]} id={item.id} name={item.name} description={item.description} isDropped={isDropped(item.name)}/>;
                         return (<Draggable
-                            defaultPosition={{ x: 120, y: 120 }}
+                            defaultPosition={{ x: 60 + index*120, y: 160 }}
                             position={null}
                             grid={[50, 50]}
                             scale={1}

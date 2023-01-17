@@ -46,7 +46,7 @@ function Panel({onRunTest, resourcePool, selectedResource, onTestPanel, setSelec
                        <InputRange range={concurrentUser} label="Concurrency" unit="users" setConfig={(type, value) => {setConfig({...config, [type] : value})}} />
                    </div>
                    <div className='w-2/3 mt-4'>
-                       <InputRange range={[1,2,3,4,5,6,7,8,9,10]} label="Time" unit="min" setConfig={(type, value) => {setConfig({...config, [type] : value})}} />
+                       <InputRange range={[1,5,10]} label="Time" unit="min" setConfig={(type, value) => {setConfig({...config, [type] : value})}} />
                    </div>
                </div>
                 ) : null)             
