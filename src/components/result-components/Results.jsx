@@ -46,6 +46,12 @@ function Results({data, notBlurResult}) {
                         <Guage label="SWAP Used" value={0} />
                     </div> || null}
                 </div>
+                <h6 class="mb-6 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                    Detailed <mark class="px-1 text-white bg-indigo-600 rounded dark:bg-indigo-500">Explaination</mark></h6>
+                <blockquote class="p-4 my-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
+                
+                    <p class="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
+                </blockquote>
                 {data.dashboardLink && <ExploreDashboard link={data.dashboardLink} /> || null}
             </div>
         </div>

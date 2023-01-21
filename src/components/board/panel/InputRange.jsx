@@ -15,7 +15,7 @@ export const InputRange = (props) => {
                <div> {label+" : "} </div>
                <div > <span className="border-2 px-1 w-20 inline-block">{value}</span> <span>{" "+unit}</span> </div>
             </div>
-            <input type="range" min={0} max={range.length - 1} step="1"  onChange={handleDrag} />
+            <input type="range" min={0} max={range.length - 1} class="w-full h-2 mb-6 rounded-lg accent-indigo-700 cursor-pointer" onChange={handleDrag} />
         </div >
     );
 };

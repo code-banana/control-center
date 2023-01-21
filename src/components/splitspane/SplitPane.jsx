@@ -11,18 +11,18 @@ import React, {
 
     const screenWidth = document.getElementById("root").offsetWidth
     const [clientHeight, setClientHeight] = useState(null);
-    const [clientWidth, setClientWidth] = useState(screenWidth/4);
-    const [rightClientWidth, setRightClientWidth] = useState(screenWidth/4);
-    const [midClientWidth, setMidClientWidth] = useState(screenWidth/2);
+    const [clientWidth, setClientWidth] = useState(screenWidth*0.25);
+    const [rightClientWidth, setRightClientWidth] = useState(screenWidth*0.27);
+    const [midClientWidth, setMidClientWidth] = useState(screenWidth*0.48);
     const yDividerPos = useRef(null);
     const xDividerPos = useRef(null);
     const [whichDivider, setWhichDivider] = useState(null);
 
     window.addEventListener('resize', function(event) {
       const screenWidth = event.currentTarget.innerWidth;
-      setClientWidth(screenWidth/4)
-      setRightClientWidth(screenWidth/4)
-      setMidClientWidth(screenWidth/2)
+      setClientWidth(screenWidth*0.25)
+      setRightClientWidth(screenWidth*0.27)
+      setMidClientWidth(screenWidth*0.48)
     }, true);
   
     const onMouseHoldDown = (e) => {
