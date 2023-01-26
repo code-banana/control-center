@@ -5,7 +5,7 @@ import ConfigPanel from './ConfigPanel'
 import GlobalContext from '../../Context'
 
 function Panel({onRunTest, resourcePool, selectedResource, onTestPanel, setSelectedResource}) {
-    const concurrentUser = [1, 10, 100, 1000, 10000, 100000]
+    const concurrentUser = [100, 1000, 10000, 100000]
     const [isVisible, setVisibility] = useState(true)
     const [selectedPanel, setSelectedPanel] = useState(0)
     const {config, setConfig} = useContext(GlobalContext)
@@ -47,9 +47,9 @@ function Panel({onRunTest, resourcePool, selectedResource, onTestPanel, setSelec
                    <div className='w-2/3 mt-2'>
                        <InputRange range={concurrentUser} label="Concurrency" unit="users" setConfig={(type, value) => {setConfig({...config, [type] : value})}} />
                    </div>
-                   <div className='w-2/3 mt-4'>
+                   {/* <div className='w-2/3 mt-4'>
                        <InputRange range={[1,5,10]} label="Time" unit="min" setConfig={(type, value) => {setConfig({...config, [type] : value})}} />
-                   </div>
+                   </div> */}
                </div>
                 ) : null)             
           }
