@@ -5,7 +5,7 @@ import ConfigPanel from './ConfigPanel'
 import GlobalContext from '../../Context'
 
 function Panel({onRunTest, resourcePool, selectedResource, onTestPanel, setSelectedResource}) {
-    const concurrentUser = [100, 1000, 10000, 100000]
+    const concurrentUser = [100, 1000, 10000, 20000]
     const [isVisible, setVisibility] = useState(true)
     const [selectedPanel, setSelectedPanel] = useState(0)
     const {config, setConfig} = useContext(GlobalContext)
