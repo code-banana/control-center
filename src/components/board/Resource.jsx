@@ -4,7 +4,6 @@ import Xarrow from "react-xarrows";
 function Resource({ id, url, name, className, onSelect, isHighlight, ...rest }) {
 
   const selectedClass = "border-2 border-indigo-500 border-dotted rounded-3xl"
-  console.log("yo", id)
   return (
     <>
     {id>0 && <Xarrow

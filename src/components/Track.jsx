@@ -30,7 +30,7 @@ export default function Track({ result, resourcePool, problemStatement}) {
                     </SplitPaneMid>
                     <Divider id="divider-right" className="separator-col" />
                     <SplitPaneRight>
-                        <Results data={result} notBlurResult={onRun}/>
+                        <Results data={result} onRun={onRun}/>
                     </SplitPaneRight>
                 </SplitPane>
             </div>

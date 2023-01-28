@@ -1,9 +1,6 @@
 import React from "react";
 
 export const RadioInput = ({ label, options, updateSelection,  valueFromConfig}) => {
-
-    console.log("value", valueFromConfig)
-
     return (
         <div className="space-y-1 p-1 w-full text-black text-bold">
             <div className="font-bold space-4">
