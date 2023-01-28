@@ -21,8 +21,8 @@ import React, {
     window.addEventListener('resize', function(event) {
       const screenWidth = event.currentTarget.innerWidth;
       setClientWidth(screenWidth*0.25)
-      setRightClientWidth(screenWidth*0.27)
-      setMidClientWidth(screenWidth*0.48)
+      setRightClientWidth(screenWidth*0.50)
+      setMidClientWidth(screenWidth*0.25)
     }, true);
   
     const onMouseHoldDown = (e) => {

@@ -41,16 +41,9 @@ export default {
     
         <br/><br/>
         <p class="mb-4 font-bold"> Let's Find Out :</p>
-        <p> Try to locally arrange following resource and Run "Tests" - </p>
-        <p>
-        <ul class="list-disc pl-6">
-            <li> server with 2vcpu and 8gb ram</li>
-            <li> server with 8vcpu and 32gb ram</li>
-            <li> a l7 load balancer</li>
-        </ul>
-        </p>
+        <p> Choose right configuration byclicking on diagram or from bottom panel and Run "Tests"</p>
         <br><br>
-        <p> Your aim should be to keep the server latency below 10ms all the time and find out the best resource arrangement for given app </p>
+        <p> Your aim should be to keep the server latency below 10ms all the time and find out the best resource arrangement for given app to handle as much load as possible </p>
     </p>`,
     result: {
         "latencyP95": "0.3",
@@ -89,12 +82,8 @@ export default {
 
 
         <p class="mb-4 font-bold"> Resource Pool :</p>
-        <p> Try to locally arrange following resource and Run "Tests" - </p>
-        <p>
-        <ul class="list-disc pl-6">
-            <li> Added nodejs and golang implementation of kv-store</li>
-        </ul>
-        </p>
+        <p> Try to choose different vm sizes and runtime and Run "Tests" to see the metrics </p>
+
         <br><br>
         <p> Your aim should be to keep the server latency below 10ms all the time and find out the best resource arrangement for given app </p>
     </p>`,

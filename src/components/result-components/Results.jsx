@@ -24,7 +24,7 @@ function Results({ onRun }) {
     const component = useMemo(() => {
         return (
             <>
-                {invalidConfig && <ConfigAlert msg="It looks, some of the configurations are left" show={invalidConfig} onRun={onRun}/>}
+                {invalidConfig && <ConfigAlert msg="Check the configuration and try again" show={invalidConfig} onRun={onRun}/>}
                 <div className='board'>
                     <div className="editor-title">
                         Results
