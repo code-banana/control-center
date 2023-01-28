@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 export const InputRange = (props) => {
     const { range, label,unit, setConfig } = props;
     const [value, setValue] = useState(0)
+    useEffect(()=>{setConfig(label, range[value])}, [])
 
     const handleDrag = (event) => {
         setValue(event.target.value)

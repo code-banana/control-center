@@ -20,7 +20,7 @@ function Results({ onRun }) {
         }
         return a;
     }, [onRun])
-    console.log(result, config)
+    console.log(config, encode(JSON.stringify(config)), result, )
     const component = useMemo(() => {
         return (
             <>

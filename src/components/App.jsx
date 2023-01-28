@@ -8,8 +8,7 @@ function App() {
     const data = require("../track/c10k/c10k.js")
     const [isSideBarOpen, toggleSideBar] = useState(false);
     const [problemNumber, setProblemNumber] = useState(-1);
-    return (
-        <GlobalContextProvider>
+    return (<>
             <div className="error">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -33,11 +32,11 @@ function App() {
                 <Navbar toggleSideBar={() => {toggleSideBar(!isSideBarOpen)}}/>
                 {isSideBarOpen && <SideBar data={data.problems} onSelect={setProblemNumber} toggle={toggleSideBar}/> || null}
                 {problemNumber <0 && <div className='pt-9 h-screen bg-[#0f111a]'> <div className="board-area" dangerouslySetInnerHTML={ {__html: data.homePageHtml}} /></div> || null}
-                {problemNumber == 0 && <Track {...data.problems[0]} /> || null}
-                {problemNumber == 1 && <Track {...data.problems[1]} /> || null}
+                <GlobalContextProvider> {problemNumber == 0 && <Track {...data.problems[0]} /> || null}</GlobalContextProvider>
+                <GlobalContextProvider>{problemNumber == 1 && <Track {...data.problems[1]} /> || null}</GlobalContextProvider>
                 {problemNumber == 2 && <Track {...data.problems[2]} /> || null}
             </div>
-        </GlobalContextProvider>
+            </>
     )
 }
 
