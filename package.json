@@ -31,6 +31,8 @@
     "react-gauge-chart": "^0.4.1",
     "react-native-speedometer": "^1.0.5",
     "react-popup-alert": "^2.0.0",
+    "react-router": "^6.8.0",
+    "react-router-dom": "^6.8.0",
     "react-xarrows": "^2.0.2",
     "vite-plugin-require": "^1.1.10"
   },
